@@ -1,0 +1,25 @@
+form.buscar {
+    margin: 1rem 1rem 0 1rem;
+    height: min-content;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 8px rgba(17, 17, 17, 0.11);
+    border: 1px solid rgba(17, 17, 17, 0.151);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: auto 72px;
+    grid-template-rows: min-content;
+    column-gap: .5rem;
+}
+
+form.buscar input {
+    outline: none;
+    padding: .4rem .4rem .4rem .6rem;
+    border: 1px solid rgba(17, 17, 17, 0.116);
+    font-size: .9rem;
+    color: rgba(17, 17, 17, 0.822);
+}
+
+form.buscar input::placeholder {
+    opacity: 0.8;
+    color: rgba(17, 17, 17, 0.822);
+}
