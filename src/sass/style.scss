@@ -5,7 +5,7 @@
 }
 
 html, body {
-    width: 100%;
+    width: 100vw;
     overflow-x: hidden;
 }
 
@@ -16,10 +16,9 @@ body {
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
     position: relative;
     min-height: 100vh;
+    width: 100vw;
 }
 
 a {
@@ -60,3 +59,4 @@ body::-webkit-scrollbar-thumb {
 @import "./components/menu";
 @import "./components/new_product";
 @import "./components/search_product";
+@import "./components/lista_productos";

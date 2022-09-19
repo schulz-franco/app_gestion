@@ -1,9 +1,9 @@
 const inputs = [
     {
-      name: "Código",
+      name: "Producto",
       type: "text",
-      maxl: "6",
-      minl: "4",
+      maxl: "40",
+      minl: "3",
       required: true
     },
     {
@@ -50,9 +50,9 @@ const NuevoProducto = ()=> {
         <div className="new-container">
             <h3>Registrar productos</h3>
             <form className="new" action="">
-                {inputs.map(input => {
+                {inputs.map((input, index) => {
                     return(
-                    <Input name={input.name} type={input.type} maxl={input.maxl} minl={input.minl} required={input.required} />
+                    <Input key={index} name={input.name} type={input.type} maxl={input.maxl} minl={input.minl} required={input.required} />
                     )
                 })
                 }

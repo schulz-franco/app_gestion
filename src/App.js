@@ -1,26 +1,20 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ProductosContextProvider } from './context/productosContext';
 import "./css/style.css"
-import MainPage from "./pages/productos/productos";
-// import { collection, getDocs } from "firebase/firestore"
-// import { useEffect } from "react";
-// import database from "./firebase/firebase";
-
-// const getData = async ()=> {
-//   const data = await getDocs(collection(database, "productos"))
-//   data.forEach(doc => {
-//     console.log(doc.data())
-//   })
-// }
+import PageProductos from "./pages/productos/productos";
 
 function App() {
 
-  // useEffect(()=> {
-  //   getData()
-  // }, [])
-
   return (
-    <div className="App">
-      <MainPage />
-    </div>
+    <BrowserRouter>
+    <ProductosContextProvider>
+      <Routes>
+        <Route path='/' element={
+          <PageProductos />
+        }/>
+      </Routes>
+    </ProductosContextProvider>
+    </BrowserRouter>
   );
 }
 

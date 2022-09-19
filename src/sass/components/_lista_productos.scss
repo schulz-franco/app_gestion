@@ -1,0 +1,66 @@
+.lista-productos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    padding: 1rem;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 8px rgba(17, 17, 17, 0.11);
+    border: 1px solid rgba(17, 17, 17, 0.151);
+    overflow-y: auto;
+    height: 16rem;
+}
+
+.lista-productos .producto {
+    display: grid;
+    grid-template-columns: 0.6fr 1.5fr 3fr 0.8fr 0.8fr 0.5fr 0.5fr;
+    grid-template-rows: min-content;
+    align-items: center;
+    margin-top: .8rem;
+}
+
+.lista-productos .producto span {
+    text-transform: capitalize;
+    opacity: 0.8;
+    font-size: .9rem;
+}
+
+.lista-productos .producto .price {
+    opacity: 1;
+}
+
+.lista-productos .producto.title {
+    margin-top: 0;
+}
+
+.lista-productos .producto.title span {
+    font-weight: bold;
+    opacity: 1;
+}
+
+.lista-productos .producto button {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border: none;
+    background-color: #408AB7;
+    width: max-content;
+    height: max-content;
+    padding: .5rem .8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.89);
+    font-weight: bold;
+}
+
+.lista-productos .producto button .icon {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.lista-productos .producto button {
+    margin-right: .5rem;
+}
+
+.lista-productos .producto button.delete {
+    background-color: #b74040;
+}

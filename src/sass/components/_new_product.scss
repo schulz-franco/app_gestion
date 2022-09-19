@@ -1,9 +1,11 @@
 .new-container {
-    margin: 1rem 1rem 0 1rem;
-    height: min-content;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: min-content;
     border-radius: 2px;
     box-shadow: 0 0 20px 8px rgba(17, 17, 17, 0.11);
     border: 1px solid rgba(17, 17, 17, 0.151);
+    margin-bottom: 1rem;
 }
 
 .new-container h3 {
@@ -15,7 +17,7 @@
 
 form.new {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 72px ;
+    grid-template-columns: 1fr 3fr 0.5fr 0.5fr 0.5fr 70px;
     grid-template-rows: min-content;
     align-items: end;
     margin-top: .7rem;
@@ -23,7 +25,10 @@ form.new {
     padding: 0 1rem 1rem 1rem;
 }
 
-.form.new div {
+form.new div {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: min-content min-content;
 }
 
 form.new div span {
@@ -37,6 +42,7 @@ form.new div input {
     padding: .4rem .4rem .4rem .6rem;
     border: 1px solid rgba(17, 17, 17, 0.116);
     color: rgba(17, 17, 17, 0.822);
+    min-width: 6rem;
 }
 
 form button {

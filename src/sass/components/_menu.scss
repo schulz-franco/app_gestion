@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: 260px auto;
     grid-template-rows: min-content auto;
-    height: 100vh;
     position: relative;
+    height: 100vh;
 }
 
 .main-container .shadow {
@@ -27,6 +27,10 @@
     grid-row: 2/3;
     width: 260px;
     background-color: #111;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: min-content;
+    height: 100%;
 }
 
 .main-container .left h3 {
@@ -37,7 +41,37 @@
     font-size: .9rem;
 }
 
+.main-container .left a{
+    padding: .9rem 2rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.671);
+    font-weight: 300;
+    transition: 100ms;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: min-content;
+    align-items: center;
+}
+
+.main-container .left a .icon {
+    font-size: 1.2rem;
+}
+
+.main-container .left a:hover {
+    color: #111;
+    background-color: rgba(255, 255, 255, 0.89);
+}
+
+.main-container .left a.current {
+    color: #111;
+    background-color: rgba(255, 255, 255, 0.89);
+}
+
 .main-container .right {
     grid-column: 2/3;
     grid-row: 2/3;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: min-content;
+    padding: 1rem;
 }
