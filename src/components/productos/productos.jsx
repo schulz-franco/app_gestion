@@ -1,17 +1,27 @@
-import { useState } from "react"
-import { useContext } from "react"
+import { useState, useContext } from "react"
 import { CgClose } from "react-icons/cg"
 import { GoPencil } from "react-icons/go"
 import { ProductosContext } from "../../context/productosContext"
 import { eliminarProducto } from "../../firebase/methods"
 
-const Modal = ({ mode, setModal })=> {
+const onClickModalCancelHandler = (setModal)=> {
+    setModal([false, null])
+}
+
+const onClickModalAcceptHandler = (setModal, id)=> {
+    eliminarProducto(id)
+    setModal([false, null])
+}
+
+const Modal = ({ mode, setModal, id })=> {
     if (mode === "delete") {
         return(
-            <div className="modal">
-                <span>Eliminar producto.</span>
-                <button className="accept">Confirmar</button>
-                <button className="cancel">Cancelar</button>
+            <div className="modal-container">
+                <div className="modal">
+                    <span>¿Eliminar producto?</span>
+                    <button onClick={()=> onClickModalAcceptHandler(setModal, id)} className="accept">Confirmar</button>
+                    <button onClick={()=> onClickModalCancelHandler(setModal)} className="cancel">Cancelar</button>
+                </div>
             </div>
         )
     }
@@ -19,24 +29,26 @@ const Modal = ({ mode, setModal })=> {
 
 const Producto = ({ id, producto })=> {
 
-    const [modal, setModal] = useState([false, ""])
+    const [modal, setModal] = useState([false, null])
 
     return(
-        <div className="producto">
-            <span className="name">{producto.producto}</span>
-            <span className="text">{producto.descripcion}</span>
-            <span className="price">$ {producto.precio}</span>
-            <span className="number">{producto.stock}</span>
-            <span className="number">{producto.iva}%</span>
-            <button className="edit">
-                <GoPencil className="icon" />
-            </button>
-            <button className="delete">
-                <CgClose onClick={()=> setModal([true, "delete"])} className="icon" />
-            </button>
+        <div>
             {modal[0] && 
-                <Modal mode={modal[1]} />
+                <Modal mode={modal[1]} setModal={setModal} id={id} />
             }
+            <div className="producto">
+                <span className="name">{producto.producto}</span>
+                <span className="text">{producto.descripcion}</span>
+                <span className="price">$ {producto.precio}</span>
+                <span className="number">{producto.stock}</span>
+                <span className="number">{producto.iva}%</span>
+                <button className="edit">
+                    <GoPencil className="icon" />
+                </button>
+                <button className="delete">
+                    <CgClose onClick={()=> setModal([true, "delete"])} className="icon" />
+                </button>
+            </div>
         </div>
     )
 }

@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { database } from "../firebase/firebaseConfig";
 
 export const ProductosContext = createContext()

@@ -71,6 +71,49 @@
     background-color: #d13636;
 }
 
-.lista-productos .producto .modal {
+.lista-productos .modal-container {
     position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.lista-productos .modal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content;
+    row-gap: .5rem;
+    column-gap: .5rem;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 4px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.199);
+}
+
+.lista-productos .modal span {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.lista-productos .modal button {
+    border: none;
+    background-color: #408AB7;
+    padding: .5rem .8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.89);
+    font-weight: bold;
+}
+
+.lista-productos .modal .accept {
+    background-color: #d13636;
 }
