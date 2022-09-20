@@ -87,8 +87,6 @@
 
 .lista-productos .modal {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content min-content;
     row-gap: .5rem;
     column-gap: .5rem;
     background-color: #fff;
@@ -97,11 +95,43 @@
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.199);
 }
 
-.lista-productos .modal span {
+.lista-productos .modal-delete {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content;
+}
+
+.lista-productos .modal-edit {
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    width: 300px;
+}
+
+.lista-productos .modal .acceptMessage {
     grid-column: 1/3;
     grid-row: 1/2;
     font-size: 1rem;
     text-align: center;
+}
+
+.lista-productos .modal input {
+    outline: none;
+    padding: .6rem .8rem;
+    border: 1px solid rgba(17, 17, 17, 0.185);
+    color: rgba(17, 17, 17, 0.822);
+}
+
+.lista-productos .modal label {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
+    row-gap: .2rem;
+    font-size: .9rem;
+    color: rgba(0, 0, 0, 0.747);
+}
+
+.lista-productos .modal .errorMessage {
+    font-size: .9rem;
+    color: red;
 }
 
 .lista-productos .modal button {
@@ -116,4 +146,8 @@
 
 .lista-productos .modal .accept {
     background-color: #d13636;
+}
+
+.lista-productos .modal input.error {
+    border-color: red;
 }
