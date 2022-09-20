@@ -8,7 +8,7 @@ const onSubmitHandler = (ev, setSearch)=> {
 
 const BuscarProducto = ()=> {
 
-  const { search, setSearch } = useContext(ProductosContext)
+  const { setSearch } = useContext(ProductosContext)
 
   return(
     <form action="" className="buscar" onSubmit={(ev)=> onSubmitHandler(ev, setSearch)}>

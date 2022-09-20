@@ -1,39 +1,26 @@
-.main-container {
-    display: grid;
-    grid-template-columns: 260px auto;
-    grid-template-rows: min-content auto;
-    position: relative;
-    height: 100vh;
-}
-
-.main-container .shadow {
-    position: absolute;
-    width: 260px;
-    height: 80px;
+.menu-container .top {
+    position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.199);
-}
-
-.main-container .top {
-    height: 80px;
+    right: 0;
+    height: 48px;
     background-color: #4C95BE;
-    grid-column: 1/3;
-    grid-row: 1/2;
 }
 
-.main-container .left {
-    grid-column: 1/2;
-    grid-row: 2/3;
+.menu-container .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
     width: 260px;
     background-color: #111;
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: min-content;
-    height: 100%;
+    z-index: 0;
 }
 
-.main-container .left h3 {
+.menu-container .left h3 {
     padding: 1rem 2rem;
     letter-spacing: 1px;
     color: rgba(255, 255, 255, 0.466);
@@ -41,7 +28,7 @@
     font-size: .9rem;
 }
 
-.main-container .left a{
+.menu-container .left a{
     padding: .9rem 2rem;
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.671);
@@ -53,25 +40,16 @@
     align-items: center;
 }
 
-.main-container .left a .icon {
+.menu-container .left a .icon {
     font-size: 1.2rem;
 }
 
-.main-container .left a:hover {
+.menu-container .left a:hover {
     color: #111;
     background-color: rgba(255, 255, 255, 0.89);
 }
 
-.main-container .left a.current {
+.menu-container .left a.current {
     color: #111;
     background-color: rgba(255, 255, 255, 0.89);
-}
-
-.main-container .right {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    display: grid;
-    grid-template-columns: auto;
-    grid-auto-rows: min-content;
-    padding: 1rem;
 }

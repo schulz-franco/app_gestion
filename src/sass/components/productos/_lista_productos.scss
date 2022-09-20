@@ -1,21 +1,25 @@
 .lista-productos {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     grid-auto-rows: min-content;
-    padding: 1rem;
     border-radius: 2px;
     box-shadow: 0 0 20px 8px rgba(17, 17, 17, 0.11);
     border: 1px solid rgba(17, 17, 17, 0.151);
-    overflow-y: auto;
-    height: 16rem;
+}
+
+.lista-productos .productos {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: min-content;
+    padding: 0 1rem .5rem 1rem;
 }
 
 .lista-productos .producto {
     display: grid;
-    grid-template-columns: 0.6fr 1.5fr 3fr 0.8fr 0.8fr 0.5fr 0.5fr;
+    grid-template-columns: 1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
     grid-template-rows: min-content;
     align-items: center;
-    margin-top: .8rem;
+    padding-top: .5rem;
 }
 
 .lista-productos .producto span {
@@ -30,6 +34,8 @@
 
 .lista-productos .producto.title {
     margin-top: 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.151);
 }
 
 .lista-productos .producto.title span {
