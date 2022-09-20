@@ -17,6 +17,12 @@
     margin-bottom: 1rem;
 }
 
+.new-container p.errorMessage {
+    padding: 0 1rem 1rem 1rem;
+    font-size: .9rem;
+    color: red;
+}
+
 .new-container h3 {
     color: #111;
     font-size: 1rem;
@@ -52,6 +58,10 @@ form.new div input {
     border: 1px solid rgba(17, 17, 17, 0.116);
     color: rgba(17, 17, 17, 0.822);
     min-width: 6rem;
+}
+
+form.new div input.error {
+    border-color: red;
 }
 
 form button {

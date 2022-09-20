@@ -16,7 +16,7 @@ export const ProductosContextProvider = ({ children })=> {
             const unsub = database.collection("productos").onSnapshot(snap => {
                 let collection = []
                 snap.forEach(doc => {
-                    collection.push(doc.data())
+                    collection.push([doc.id, doc.data()])
                 })
                 setProductos(collection)
             })
@@ -25,7 +25,7 @@ export const ProductosContextProvider = ({ children })=> {
             const unsub = database.collection("productos").where("producto", "==", search).onSnapshot(snap => {
                 let collection = []
                 snap.forEach(doc => {
-                    collection.push(doc.data())
+                    collection.push([doc.id, doc.data()])
                 })
                 setProductos(collection)
             })

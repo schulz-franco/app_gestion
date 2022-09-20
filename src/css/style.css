@@ -36,7 +36,8 @@ body::-webkit-scrollbar-thumb {
   left: 0;
   right: 0;
   height: 48px;
-  background-color: #4C95BE; }
+  background-color: #4C95BE;
+  z-index: 1; }
 
 .menu-container .left {
   position: fixed;
@@ -48,7 +49,7 @@ body::-webkit-scrollbar-thumb {
   display: grid;
   grid-template-columns: auto;
   grid-auto-rows: min-content;
-  z-index: 0; }
+  z-index: 2; }
 
 .menu-container .left h3 {
   padding: 1rem 2rem;
@@ -96,6 +97,11 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid rgba(17, 17, 17, 0.151);
   margin-bottom: 1rem; }
 
+.new-container p.errorMessage {
+  padding: 0 1rem 1rem 1rem;
+  font-size: .9rem;
+  color: red; }
+
 .new-container h3 {
   color: #111;
   font-size: 1rem;
@@ -127,6 +133,9 @@ form.new div input {
   border: 1px solid rgba(17, 17, 17, 0.116);
   color: rgba(17, 17, 17, 0.822);
   min-width: 6rem; }
+
+form.new div input.error {
+  border-color: red; }
 
 form button {
   border: none;
@@ -223,6 +232,9 @@ form.buscar input::placeholder {
   margin-right: .5rem; }
 
 .lista-productos .producto button.delete {
-  background-color: #b74040; }
+  background-color: #d13636; }
+
+.lista-productos .producto .modal {
+  position: fixed; }
 
 /*# sourceMappingURL=style.css.map */

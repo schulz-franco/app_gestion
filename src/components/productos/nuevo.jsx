@@ -1,3 +1,6 @@
+import { useState } from "react"
+import { nuevoProducto } from "../../firebase/methods"
+
 const inputs = [
     {
       name: "Producto",
@@ -45,21 +48,57 @@ return(
 )
 } 
 
+const onSubmitHandler = (ev, setError)=> {
+  ev.preventDefault()
+
+  if (ev.target.childNodes[0].lastElementChild.value.trim() === "") {
+    ev.target.childNodes[0].lastElementChild.classList.add("error")
+    return setError([true, "El campo 'Producto' esta vacío."])
+  } else {
+    ev.target.childNodes[0].lastElementChild.classList.remove("error")
+    setError([false, ""])
+  }
+
+  let datos = []
+  for (let counter = 0; counter < 5; counter++) {
+    datos.push(ev.target.childNodes[counter].lastElementChild.value.trim())
+    ev.target.childNodes[counter].lastElementChild.value = ""
+  }
+
+  if (datos[1] === "") datos[1] = "-" 
+
+  let producto = {
+    producto: datos[0],
+    descripcion: datos[1],
+    precio: datos[2],
+    stock: datos[3],
+    iva: datos[4]
+  }
+
+  nuevoProducto(producto)
+}
+
 const NuevoProducto = ()=> {
-    return(
-        <div className="new-container">
-            <h3>Registrar productos</h3>
-            <form className="new" action="">
-                {inputs.map((input, index) => {
-                    return(
-                    <Input key={index} name={input.name} type={input.type} maxl={input.maxl} minl={input.minl} required={input.required} />
-                    )
-                })
-                }
-                <button>Guardar</button>
-            </form>
-        </div>
-    )
+
+  const [error, setError] = useState([false, ""])
+
+  return(
+      <div className="new-container">
+          <h3>Registrar productos</h3>
+          <form onSubmit={(ev)=> onSubmitHandler(ev, setError)} className="new">
+              {inputs.map((input, index) => {
+                  return(
+                  <Input key={index} name={input.name} type={input.type} maxl={input.maxl} minl={input.minl} required={input.required} />
+                  )
+              })
+              }
+              <button type="submit">Guardar</button>
+          </form>
+          {error[0] && 
+            <p className="errorMessage">{error[1]}</p>
+          }
+      </div>
+  )
 }
 
 export default NuevoProducto

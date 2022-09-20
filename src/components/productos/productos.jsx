@@ -1,9 +1,26 @@
+import { useState } from "react"
 import { useContext } from "react"
 import { CgClose } from "react-icons/cg"
 import { GoPencil } from "react-icons/go"
 import { ProductosContext } from "../../context/productosContext"
+import { eliminarProducto } from "../../firebase/methods"
 
-const Producto = ({ producto })=> {
+const Modal = ({ mode, setModal })=> {
+    if (mode === "delete") {
+        return(
+            <div className="modal">
+                <span>Eliminar producto.</span>
+                <button className="accept">Confirmar</button>
+                <button className="cancel">Cancelar</button>
+            </div>
+        )
+    }
+}
+
+const Producto = ({ id, producto })=> {
+
+    const [modal, setModal] = useState([false, ""])
+
     return(
         <div className="producto">
             <span className="name">{producto.producto}</span>
@@ -15,8 +32,11 @@ const Producto = ({ producto })=> {
                 <GoPencil className="icon" />
             </button>
             <button className="delete">
-                <CgClose className="icon" />
+                <CgClose onClick={()=> setModal([true, "delete"])} className="icon" />
             </button>
+            {modal[0] && 
+                <Modal mode={modal[1]} />
+            }
         </div>
     )
 }
@@ -39,7 +59,7 @@ const ListaProductos = () => {
             <div className="productos">
                 {productos.map(producto => {
                     return(
-                        <Producto key={producto.producto} producto={producto} />
+                        <Producto key={producto[0]} id={producto[0]} producto={producto[1]} />
                     )
                 })}
             </div>

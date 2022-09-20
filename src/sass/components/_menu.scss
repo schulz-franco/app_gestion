@@ -5,6 +5,7 @@
     right: 0;
     height: 48px;
     background-color: #4C95BE;
+    z-index: 1;
 }
 
 .menu-container .left {
@@ -17,7 +18,7 @@
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: min-content;
-    z-index: 0;
+    z-index: 2;
 }
 
 .menu-container .left h3 {
