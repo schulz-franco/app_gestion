@@ -1,52 +1,5 @@
 import { useState } from "react"
-import { nuevoProducto } from "../../firebase/methods"
-
-const inputs = [
-    {
-      name: "Producto",
-      type: "text",
-      maxl: "40",
-      minl: "3",
-      required: true
-    },
-    {
-      name: "Descripción",
-      type: "text",
-      maxl: "50",
-      minl: "",
-      required: false
-    },
-    {
-      name: "Precio",
-      type: "Number",
-      maxl: "12",
-      minl: "1",
-      required: true
-    },
-    {
-      name: "Stock",
-      type: "number",
-      maxl: "6",
-      minl: "1",
-      required: true
-    },
-    {
-      name: "P.Iva",
-      type: "number",
-      maxl: "2",
-      minl: "2",
-      required: true
-    }
-  ]
-
-const Input = ({ name, type, maxl, minl, required })=> {
-return(
-    <div className="input-container">
-        <span>{name}</span>
-        <input required={required} type={type} maxLength={maxl} minLength={minl}/>
-    </div>
-)
-} 
+import { setProducto } from "../../firebase/methods"
 
 const onSubmitHandler = (ev, setError)=> {
   ev.preventDefault()
@@ -75,7 +28,7 @@ const onSubmitHandler = (ev, setError)=> {
     iva: datos[4]
   }
 
-  nuevoProducto(producto)
+  setProducto(producto)
 }
 
 const NuevoProducto = ()=> {
@@ -86,13 +39,12 @@ const NuevoProducto = ()=> {
       <div className="new-container">
           <h3>Registrar productos</h3>
           <form onSubmit={(ev)=> onSubmitHandler(ev, setError)} className="new">
-              {inputs.map((input, index) => {
-                  return(
-                  <Input key={index} name={input.name} type={input.type} maxl={input.maxl} minl={input.minl} required={input.required} />
-                  )
-              })
-              }
-              <button type="submit">Guardar</button>
+            <label>Producto<input required maxLength={40} minLength={3} type="text" /></label>
+            <label>Descripción<input maxLength={50} type="text" /></label>
+            <label>Precio<input required maxLength={12} minLength={1} type="number" /></label>
+            <label>Stock<input required maxLength={6} minLength={1} type="number" /></label>
+            <label>P. Iva<input required maxLength={2} minLength={2} type="number" /></label>
+            <button type="submit">Guardar</button>
           </form>
           {error[0] && 
             <p className="errorMessage">{error[1]}</p>

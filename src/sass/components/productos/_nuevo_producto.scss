@@ -40,18 +40,15 @@ form.new {
     padding: 0 1rem 1rem 1rem;
 }
 
-form.new div {
+form.new label {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: min-content min-content;
-}
-
-form.new div span {
     font-size: .9rem;
     color: rgba(17, 17, 17, 0.822);
 }
 
-form.new div input {
+form.new input {
     outline: none;
     margin-top: .5rem;
     padding: .4rem .4rem .4rem .6rem;
@@ -60,7 +57,7 @@ form.new div input {
     min-width: 6rem;
 }
 
-form.new div input.error {
+form.new label input.error {
     border-color: red;
 }
 

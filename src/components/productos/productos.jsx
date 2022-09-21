@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import { CgClose } from "react-icons/cg"
 import { GoPencil } from "react-icons/go"
 import { ProductosContext } from "../../context/productosContext"
-import { eliminarProducto, editarProducto } from "../../firebase/methods"
+import { eliminarProducto, setProducto } from "../../firebase/methods"
 
 const onClickModalCancelHandler = (ev, setModal)=> {
     ev.preventDefault()
@@ -19,7 +19,7 @@ const onSubmitModalEditHandler = (ev, setError, setModal, id)=> {
   
     if (ev.target.childNodes[0].lastElementChild.value.trim() === "") {
       ev.target.childNodes[0].lastElementChild.classList.add("error")
-      return setError([true, "El campo 'Producto' esta vacío."])
+      return setError([true, "* Campo vacío."])
     } else {
       ev.target.childNodes[0].lastElementChild.classList.remove("error")
       setError([false, ""])
@@ -42,8 +42,7 @@ const onSubmitModalEditHandler = (ev, setError, setModal, id)=> {
     }
   
     setModal([false, null])
-    console.log(producto)
-    editarProducto(id, producto)
+    setProducto(producto, id)
   }
 
 const Modal = ({ mode, setModal, id, producto })=> {
@@ -65,13 +64,13 @@ const Modal = ({ mode, setModal, id, producto })=> {
             <div className="modal-container">
                 <form onSubmit={(ev)=> onSubmitModalEditHandler(ev, setError, setModal, id)} className="modal modal-edit">
                     <label>Producto<input defaultValue={producto.producto} placeholder="Producto" required maxLength={40} minLength={3} type="text" /></label>
-                    {error[0] && <span className="errorMessage">{error[1]}</span>}
                     <label>Descripción<input defaultValue={producto.descripcion} placeholder="Descripción" maxLength={50} type="text" /></label>
                     <label>Precio<input defaultValue={producto.precio} placeholder="Precio" required maxLength={12} minLength={1} type="number" /></label>
                     <label>Stock<input defaultValue={producto.stock} placeholder="Stock" required maxLength={6} minLength={1} type="number" /></label>
                     <label>P. Iva<input defaultValue={producto.iva} placeholder="P. Iva" required maxLength={2} minLength={2} type="number" /></label>
                     <button type="submit">Confirmar</button>
                     <button onClick={(ev)=> onClickModalCancelHandler(ev, setModal)} className="accept">Cancelar</button>
+                    {error[0] && <span className="errorMessage">{error[1]}</span>}
                 </form>
             </div>
         )
@@ -82,6 +81,11 @@ const Producto = ({ id, producto })=> {
 
     const [modal, setModal] = useState([false, null])
 
+    const styleStockWarning = producto.stock <= 5 ? {
+        color: "red",
+        fontWeight: "bold"
+    } : undefined
+
     return(
         <div>
             {modal[0] && 
@@ -91,7 +95,7 @@ const Producto = ({ id, producto })=> {
                 <span className="name">{producto.producto}</span>
                 <span className="text">{producto.descripcion}</span>
                 <span className="price">$ {producto.precio}</span>
-                <span className="number">{producto.stock}</span>
+                <span style={styleStockWarning} className="number">{producto.stock}</span>
                 <span className="number">{producto.iva}%</span>
                 <button onClick={()=> setModal([true, "edit"])} className="edit">
                     <GoPencil className="icon" />
@@ -120,6 +124,9 @@ const ListaProductos = () => {
                 <span>Eliminar</span>
             </div>
             <div className="productos">
+                {productos.length < 1 && 
+                    <span className="sin-resultados">Sin resultados</span>
+                }
                 {productos.map(producto => {
                     return(
                         <Producto key={producto[0]} id={producto[0]} producto={producto[1]} />

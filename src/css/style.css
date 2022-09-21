@@ -117,16 +117,14 @@ form.new {
   column-gap: .5rem;
   padding: 0 1rem 1rem 1rem; }
 
-form.new div {
+form.new label {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: min-content min-content; }
-
-form.new div span {
+  grid-template-rows: min-content min-content;
   font-size: .9rem;
   color: rgba(17, 17, 17, 0.822); }
 
-form.new div input {
+form.new input {
   outline: none;
   margin-top: .5rem;
   padding: .4rem .4rem .4rem .6rem;
@@ -134,7 +132,7 @@ form.new div input {
   color: rgba(17, 17, 17, 0.822);
   min-width: 6rem; }
 
-form.new div input.error {
+form.new label input.error {
   border-color: red; }
 
 form button {
@@ -303,5 +301,10 @@ form.buscar input::placeholder {
 
 .lista-productos .modal input.error {
   border-color: red; }
+
+.lista-productos .productos .sin-resultados {
+  font-size: .9rem;
+  padding-top: .5rem;
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

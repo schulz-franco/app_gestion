@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { database } from "../firebase/firebaseConfig";
+import { listarProductos } from "../firebase/methods";
 
 export const ProductosContext = createContext()
 
@@ -12,23 +13,11 @@ export const ProductosContextProvider = ({ children })=> {
 
     useEffect(()=> {
         if (search === "") {
-            const unsub = database.collection("productos").onSnapshot(snap => {
-                let collection = []
-                snap.forEach(doc => {
-                    collection.push([doc.id, doc.data()])
-                })
-                setProductos(collection)
-            })
-            return () => unsub()
+            listarProductos(database, setProductos)
+            return () => listarProductos(database, setProductos)
         } else {
-            const unsub = database.collection("productos").where("producto", "==", search).onSnapshot(snap => {
-                let collection = []
-                snap.forEach(doc => {
-                    collection.push([doc.id, doc.data()])
-                })
-                setProductos(collection)
-            })
-            return () => unsub()
+            listarProductos(database, setProductos, search)
+            return () => listarProductos(database, setProductos, search)
         }
     }, [search])
 

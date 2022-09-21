@@ -1,3 +1,12 @@
+# App de gestión
+
+En este proyecto busco construir una aplicación que ofrezca herramientas de gestión para negocios y funcione por módulos. \
+Práctica con firebase/firestore.
+
+# Modulos actuales
+
+- Productos (CRUD para gestionar productos)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
