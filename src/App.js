@@ -3,17 +3,21 @@ import { ProductosContextProvider } from './context/productosContext';
 import "./css/style.css"
 
 import Menu from './components/menu';
-import PageProductos from "./pages/productos/productos";
+import PageProductos from "./pages/productos/index";
+import PageCarrito from './pages/carrito';
 
 function App() {
 
   return (
     <BrowserRouter>
-    <Menu />
     <ProductosContextProvider>
+    <Menu />
       <Routes>
-        <Route path='/' element={
+        <Route path='/productos' element={
           <PageProductos />
+        }/>
+        <Route path='/carrito' element={
+          <PageCarrito />
         }/>
       </Routes>
     </ProductosContextProvider>

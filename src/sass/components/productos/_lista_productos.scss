@@ -43,7 +43,7 @@
     opacity: 1;
 }
 
-.lista-productos .producto button {
+.producto button {
     display: grid;
     align-items: center;
     justify-items: center;
@@ -65,6 +65,7 @@
 
 .lista-productos .producto button {
     margin-right: .5rem;
+    width: 40px;
 }
 
 .lista-productos .producto button.delete {

@@ -38,6 +38,15 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid transparent;
 }
 
+.main-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: min-content min-content;
+    margin-left: 260px;
+    margin-top: 48px;
+    padding: 1rem;
+}
+
 @mixin tablet {
     @media only screen and (min-width: 768px) {
         @content;
@@ -60,3 +69,4 @@ body::-webkit-scrollbar-thumb {
 @import "./components/productos/nuevo_producto";
 @import "./components/productos/buscar_producto";
 @import "./components/productos/lista_productos";
+@import "./components/carrito/carrito";

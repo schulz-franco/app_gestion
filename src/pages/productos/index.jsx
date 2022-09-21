@@ -4,7 +4,7 @@ import ListaProductos from "../../components/productos/productos"
 
 const PageProductos = () => {
   return (
-    <div className="productos-main-container">
+    <div className="main-container">
       <NuevoProducto />
       <BuscarProducto />
       <ListaProductos />

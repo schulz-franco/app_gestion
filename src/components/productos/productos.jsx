@@ -1,5 +1,4 @@
 import { useState, useContext } from "react"
-import { CgClose } from "react-icons/cg"
 import { GoPencil } from "react-icons/go"
 import { ProductosContext } from "../../context/productosContext"
 import { eliminarProducto, setProducto } from "../../firebase/methods"
@@ -101,7 +100,7 @@ const Producto = ({ id, producto })=> {
                     <GoPencil className="icon" />
                 </button>
                 <button onClick={()=> setModal([true, "delete"])} className="delete">
-                    <CgClose className="icon" />
+                    X
                 </button>
             </div>
         </div>

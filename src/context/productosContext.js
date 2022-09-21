@@ -7,9 +7,10 @@ export const ProductosContext = createContext()
 export const ProductosContextProvider = ({ children })=> {
 
     const [productos, setProductos] = useState(null)
+    const [carrito, setCarrito] = useState([])
     const [search, setSearch] = useState("")
 
-    const value = {productos, setProductos, search, setSearch}
+    const value = {productos, setProductos, search, setSearch, carrito, setCarrito}
 
     useEffect(()=> {
         if (search === "") {

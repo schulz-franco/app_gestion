@@ -1,11 +1,40 @@
 # App de gestión
 
-En este proyecto busco construir una aplicación que ofrezca herramientas de gestión para negocios y funcione por módulos. \
-Práctica con firebase/firestore.
+En este proyecto busco construir una aplicación web de escritorio que ofrezca herramientas de gestión para negocios y funcione por módulos. \
+Práctica con firebase.
 
 # Modulos actuales
 
-- Productos (CRUD para gestionar productos)
+## Productos
+
+- Agregar
+- Consultar por nombre y/o descripción
+- Eliminar
+- Editar
+- Stock en color rojo si es bajo (actualmente a partir de 5 unidades, configurable a futuro)
+
+## Carrito (sin terminar)
+
+- Consultar por nombre y/o descripción
+- Agregar (solo si hay stock disponible)
+- Quitar
+- Limpiar carrito
+- Elegir cantidades (limitado segun el stock disponible)
+- Precio final por producto en base al precio unitario, unidades e iva
+
+### Pendientes en modulo Carrito
+
+- Mostrar monto final
+- Cerrar venta (con descuento de stock)
+- Registrar venta
+
+# Como usar
+
+Actualmente no esta pensado para ser probado. Si queres hacerlo necesitas:
+
+- Dar de alta una database en Cloud Firestore con una colección llamada "productos"
+- Permitir la lectura/escritura en las reglas
+- Crear un archivo .env y agregar las variables de configuración de firebase segun a como son llamadas en el archivo "src/firebase/firebaseConfig.js" 
 
 # Getting Started with Create React App
 
