@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react"
 import { ProductosContext } from "../../context/productosContext"
 import { database } from "../../firebase/firebaseConfig"
 import { descontarStocks } from "../../firebase/methods"
+import { FaTrash } from "react-icons/fa"
 
 const onClickUnidadesHandler = (operacion, unidades, setUnidades, productoStock)=> {
 	if (operacion === "+") {
@@ -49,7 +50,7 @@ const ProductoCarrito = ({ id, producto, carrito, setCarrito, setMontoTotal })=>
 				<button onClick={()=> onClickUnidadesHandler("+", unidades, setUnidades, producto.stock)}>+</button>
 			</div>
 			<span>$ {precioFinal}</span>
-			<button onClick={()=> onClickQuitarHandler(id, carrito, setCarrito)}>X</button>
+			<FaTrash className="delete" onClick={()=> onClickQuitarHandler(id, carrito, setCarrito)} />
 		</div>
 	)
 }

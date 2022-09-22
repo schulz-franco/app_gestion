@@ -1,17 +1,20 @@
 import { useContext } from "react"
 import { ProductosContext } from "../../context/productosContext"
-import { MdAddBox } from "react-icons/md"
+import { MdAddCircle } from "react-icons/md"
 
 const styleProductoCarrito = {
     gridTemplateColumns: "1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr"
 }
 
-const styleBotonAgregar = {
-    width: "min-content",
-    color: "#54b740",
-    background: "none",
-    fontSize: "1.4rem",
-    cursor: "pointer"
+const styleBotonAgregar = (stock)=> {
+    let disponible = stock > 0 ? true : false
+    return {
+        width: "min-content",
+        color: disponible ? "#54b740" : "#d13636",
+        background: "none",
+        fontSize: "1.4rem",
+        cursor: disponible ? "pointer" : "auto"
+    }
 }
 
 const agregarCarrito = (id, producto, setCarrito, carrito)=> {
@@ -41,7 +44,7 @@ const Producto = ({ id, producto, setCarrito, carrito })=> {
                 <span className="price">$ {producto.precio}</span>
                 <span style={styleStockWarning} className="number">{producto.stock}</span>
                 <span className="number">{producto.iva}%</span>
-                <MdAddBox onClick={()=> agregarCarrito(id, producto, setCarrito, carrito)} style={styleBotonAgregar} className="add" />
+                <MdAddCircle onClick={()=> agregarCarrito(id, producto, setCarrito, carrito)} style={styleBotonAgregar(producto.stock)} className="add" />
             </div>
         </div>
     )

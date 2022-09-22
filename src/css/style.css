@@ -13,9 +13,7 @@ body {
   min-height: 100vh; }
 
 #root {
-  position: relative;
-  min-height: 100vh;
-  width: 100vw; }
+  position: relative; }
 
 a {
   text-decoration: none; }
@@ -313,12 +311,12 @@ form.buscar input::placeholder {
   display: grid;
   grid-template-columns: auto;
   grid-auto-rows: min-content;
-  padding-bottom: .5rem;
+  padding-bottom: .8rem;
   border: 1px solid rgba(17, 17, 17, 0.151); }
 
 .carrito-container .lista .vacio {
   font-size: .9rem;
-  padding-top: .5rem;
+  padding-top: .8rem;
   text-align: center; }
 
 .carrito-container .header {
@@ -337,15 +335,16 @@ form.buscar input::placeholder {
   display: grid;
   grid-template-columns: 1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.8fr 0.8fr 0.5fr;
   grid-template-rows: min-content;
-  padding: .5rem 1rem 0 1rem;
+  padding: .8rem 1rem 0 1rem;
   align-items: center; }
 
 .carrito-container .producto span {
   font-size: .9rem;
   text-transform: capitalize; }
 
-.carrito-container .producto button {
-  background-color: #d13636; }
+.carrito-container .producto .delete {
+  color: #d13636;
+  cursor: pointer; }
 
 .carrito-container .producto .unidades-container {
   display: grid;
@@ -395,7 +394,7 @@ form.buscar input::placeholder {
 
 .carrito-container .buttons span:nth-child(4) {
   font-size: 1rem;
-  padding: .5rem 1rem;
+  padding: .5rem 1rem .3rem 1rem;
   border: 1px solid rgba(17, 17, 17, 0.151); }
 
 /*# sourceMappingURL=style.css.map */
