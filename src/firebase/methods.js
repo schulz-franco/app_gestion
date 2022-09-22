@@ -1,4 +1,5 @@
 import { database } from "./firebaseConfig";
+import { unidadesCarrito } from "../utilities/unidadesCarrito"
 
 export const setProducto = async ({ producto, descripcion, precio, stock, iva }, id)=> {
     if (!id) {
@@ -39,5 +40,14 @@ export const listarProductos = async (database, setProductos, search)=> {
             })
         }
         setProductos(collection)
+    })
+}
+
+export const descontarStocks = async (database, carrito)=> {
+    let unidades = unidadesCarrito()
+    carrito.map((producto, index) => {
+        return database.collection("productos").doc(producto[0]).update({
+            stock: parseInt(producto[1].stock) - parseInt(unidades[index])
+        })
     })
 }

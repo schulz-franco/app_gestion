@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { ProductosContext } from "../../context/productosContext"
+import { MdAddBox } from "react-icons/md"
 
 const styleProductoCarrito = {
     gridTemplateColumns: "1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr"
@@ -7,8 +8,10 @@ const styleProductoCarrito = {
 
 const styleBotonAgregar = {
     width: "min-content",
-    backgroundColor: "#54b740",
-    fontSize: "1rem"
+    color: "#54b740",
+    background: "none",
+    fontSize: "1.4rem",
+    cursor: "pointer"
 }
 
 const agregarCarrito = (id, producto, setCarrito, carrito)=> {
@@ -38,9 +41,7 @@ const Producto = ({ id, producto, setCarrito, carrito })=> {
                 <span className="price">$ {producto.precio}</span>
                 <span style={styleStockWarning} className="number">{producto.stock}</span>
                 <span className="number">{producto.iva}%</span>
-                <button onClick={()=> agregarCarrito(id, producto, setCarrito, carrito)} style={styleBotonAgregar} className="add">
-                    +
-                </button>
+                <MdAddBox onClick={()=> agregarCarrito(id, producto, setCarrito, carrito)} style={styleBotonAgregar} className="add" />
             </div>
         </div>
     )

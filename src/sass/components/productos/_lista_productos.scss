@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: min-content;
-    padding: 0 1rem .5rem 1rem;
+    padding: 0 1rem .8rem 1rem;
 }
 
 .lista-productos .producto {
@@ -19,7 +19,7 @@
     grid-template-columns: 1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
     grid-template-rows: min-content;
     align-items: center;
-    padding-top: .5rem;
+    padding-top: .8rem;
 }
 
 .lista-productos .producto span {
@@ -58,18 +58,15 @@
     font-weight: bold;
 }
 
-.lista-productos .producto button .icon {
-    color: #fff;
-    font-size: 1rem;
+.lista-productos .producto .edit {
+    color: #408AB7;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
-.lista-productos .producto button {
-    margin-right: .5rem;
-    width: 40px;
-}
-
-.lista-productos .producto button.delete {
-    background-color: #d13636;
+.lista-productos .producto .delete {
+    color: #d13636;
+    cursor: pointer;
 }
 
 .lista-productos .modal-container {

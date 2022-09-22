@@ -78,11 +78,11 @@
 
 .carrito-container .buttons {
     display: grid;
-    grid-template-columns: max-content auto max-content max-content;
+    grid-template-columns: max-content max-content auto max-content;
     grid-template-rows: min-content;
     align-items: center;
     column-gap: .5rem;
-    padding: 1rem 0 0 0;
+    padding: .5rem 0 0 0;
 }
 
 .carrito-container .buttons button {
@@ -95,11 +95,12 @@
     font-weight: bold;
 }
 
-.carrito-container .buttons button:nth-child(3) {
+.carrito-container .buttons button:nth-child(1) {
     background-color: #d13636;
 }
 
-.carrito-container .buttons span {
+.carrito-container .buttons span:nth-child(4) {
     font-size: 1rem;
-    font-weight: bold;
+    padding: .5rem 1rem;
+    border: 1px solid rgba(17, 17, 17, 0.151);
 }

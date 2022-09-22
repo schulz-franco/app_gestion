@@ -182,14 +182,14 @@ form.buscar input::placeholder {
   display: grid;
   grid-template-columns: auto;
   grid-auto-rows: min-content;
-  padding: 0 1rem .5rem 1rem; }
+  padding: 0 1rem .8rem 1rem; }
 
 .lista-productos .producto {
   display: grid;
   grid-template-columns: 1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
   grid-template-rows: min-content;
   align-items: center;
-  padding-top: .5rem; }
+  padding-top: .8rem; }
 
 .lista-productos .producto span {
   text-transform: capitalize;
@@ -222,16 +222,14 @@ form.buscar input::placeholder {
   color: rgba(255, 255, 255, 0.89);
   font-weight: bold; }
 
-.lista-productos .producto button .icon {
-  color: #fff;
-  font-size: 1rem; }
+.lista-productos .producto .edit {
+  color: #408AB7;
+  font-size: 1.2rem;
+  cursor: pointer; }
 
-.lista-productos .producto button {
-  margin-right: .5rem;
-  width: 40px; }
-
-.lista-productos .producto button.delete {
-  background-color: #d13636; }
+.lista-productos .producto .delete {
+  color: #d13636;
+  cursor: pointer; }
 
 .lista-productos .modal-container {
   position: fixed;
@@ -377,11 +375,11 @@ form.buscar input::placeholder {
 
 .carrito-container .buttons {
   display: grid;
-  grid-template-columns: max-content auto max-content max-content;
+  grid-template-columns: max-content max-content auto max-content;
   grid-template-rows: min-content;
   align-items: center;
   column-gap: .5rem;
-  padding: 1rem 0 0 0; }
+  padding: .5rem 0 0 0; }
 
 .carrito-container .buttons button {
   border: none;
@@ -392,11 +390,12 @@ form.buscar input::placeholder {
   color: rgba(255, 255, 255, 0.89);
   font-weight: bold; }
 
-.carrito-container .buttons button:nth-child(3) {
+.carrito-container .buttons button:nth-child(1) {
   background-color: #d13636; }
 
-.carrito-container .buttons span {
+.carrito-container .buttons span:nth-child(4) {
   font-size: 1rem;
-  font-weight: bold; }
+  padding: .5rem 1rem;
+  border: 1px solid rgba(17, 17, 17, 0.151); }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,6 @@
 import { useState, useContext } from "react"
 import { GoPencil } from "react-icons/go"
+import { FaTrash } from "react-icons/fa"
 import { ProductosContext } from "../../context/productosContext"
 import { eliminarProducto, setProducto } from "../../firebase/methods"
 
@@ -96,12 +97,8 @@ const Producto = ({ id, producto })=> {
                 <span className="price">$ {producto.precio}</span>
                 <span style={styleStockWarning} className="number">{producto.stock}</span>
                 <span className="number">{producto.iva}%</span>
-                <button onClick={()=> setModal([true, "edit"])} className="edit">
-                    <GoPencil className="icon" />
-                </button>
-                <button onClick={()=> setModal([true, "delete"])} className="delete">
-                    X
-                </button>
+                <GoPencil onClick={()=> setModal([true, "edit"])} className="edit" />
+                <FaTrash onClick={()=> setModal([true, "delete"])} className="delete" />
             </div>
         </div>
     )

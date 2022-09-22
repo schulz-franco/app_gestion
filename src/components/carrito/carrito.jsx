@@ -1,6 +1,7 @@
-import { useContext, useEffect } from "react"
-import { useState } from "react"
+import { useState, useContext, useEffect } from "react"
 import { ProductosContext } from "../../context/productosContext"
+import { database } from "../../firebase/firebaseConfig"
+import { descontarStocks } from "../../firebase/methods"
 
 const onClickUnidadesHandler = (operacion, unidades, setUnidades, productoStock)=> {
 	if (operacion === "+") {
@@ -52,8 +53,13 @@ const ProductoCarrito = ({ id, producto, carrito, setCarrito, setMontoTotal })=>
 		</div>
 	)
 }
-		
+
 const onClickLimpiarCarritoHandler = (setCarrito)=> {
+	setCarrito([])
+}
+
+const onClickCerrarVentaHandler = (carrito, setCarrito)=> {
+	descontarStocks(database, carrito)
 	setCarrito([])
 }
 
@@ -85,10 +91,10 @@ const Carrito = () => {
 			</div>
 			{carrito.length > 0 && 
 				<div className="buttons">
-					<span>{carrito.length > 0 ? "Total: $ " + montoTotal : undefined}</span>
-					<span></span>
 					<button onClick={()=> onClickLimpiarCarritoHandler(setCarrito)}>Limpiar carrito</button>
-					<button>Cerrar venta</button>
+					<button onClick={()=> onClickCerrarVentaHandler(carrito, setCarrito)}>Cerrar venta</button>
+					<span></span>
+					<span>{carrito.length > 0 ? "TOTAL $ " + montoTotal.toLocaleString('en-US') : undefined}</span>
 				</div>
 			}
 		</div>
