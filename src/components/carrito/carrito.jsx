@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { useState } from "react"
 import { ProductosContext } from "../../context/productosContext"
 
@@ -17,12 +17,23 @@ const onClickQuitarHandler = (id, carrito, setCarrito)=> {
 	setCarrito(carritoActualizado)
 }
 
-const ProductoCarrito = ({ id, producto, carrito, setCarrito })=> {
+const ProductoCarrito = ({ id, producto, carrito, setCarrito, setMontoTotal })=> {
 
 	const [unidades, setUnidades] = useState(1)
 
 	const iva = parseFloat("1." + producto.iva)
 	const precioFinal = ((producto.precio * unidades) * iva).toFixed()
+
+	useEffect(()=> {
+		if (carrito.length > 0) {
+			const listaCarrito = document.querySelector("#root > div.main-container > div.carrito-container > div.lista").childNodes
+			let precioTotal = 0
+			listaCarrito.forEach(producto => {
+				precioTotal += parseInt(producto.lastChild.previousSibling.lastChild.textContent)
+			})
+			setMontoTotal(precioTotal)
+		}
+	}, [carrito, unidades])
 
 	return(
 		<div className="producto">
@@ -48,7 +59,7 @@ const onClickLimpiarCarritoHandler = (setCarrito)=> {
 
 const Carrito = () => {
 	
-	const { carrito, setCarrito } = useContext(ProductosContext)
+	const { carrito, setCarrito, montoTotal, setMontoTotal } = useContext(ProductosContext)
 	
 	return (
 		<div className='carrito-container'>
@@ -65,7 +76,7 @@ const Carrito = () => {
 			<div className="lista">
 				{carrito.length > 0 && carrito.map(producto => {
 					return(
-						<ProductoCarrito key={producto[0]} id={producto[0]} producto={producto[1]} carrito={carrito} setCarrito={setCarrito} />
+						<ProductoCarrito key={producto[0]} id={producto[0]} producto={producto[1]} carrito={carrito} setCarrito={setCarrito} setMontoTotal={setMontoTotal} />
 					)
 				})}
 				{carrito.length < 1 && 
@@ -74,6 +85,8 @@ const Carrito = () => {
 			</div>
 			{carrito.length > 0 && 
 				<div className="buttons">
+					<span>{carrito.length > 0 ? "Total: $ " + montoTotal : undefined}</span>
+					<span></span>
 					<button onClick={()=> onClickLimpiarCarritoHandler(setCarrito)}>Limpiar carrito</button>
 					<button>Cerrar venta</button>
 				</div>

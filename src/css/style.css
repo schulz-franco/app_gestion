@@ -377,9 +377,9 @@ form.buscar input::placeholder {
 
 .carrito-container .buttons {
   display: grid;
-  grid-template-columns: max-content max-content;
+  grid-template-columns: max-content auto max-content max-content;
   grid-template-rows: min-content;
-  justify-content: center;
+  align-items: center;
   column-gap: .5rem;
   padding: 1rem 0 0 0; }
 
@@ -392,7 +392,11 @@ form.buscar input::placeholder {
   color: rgba(255, 255, 255, 0.89);
   font-weight: bold; }
 
-.carrito-container .buttons button:nth-child(1) {
+.carrito-container .buttons button:nth-child(3) {
   background-color: #d13636; }
+
+.carrito-container .buttons span {
+  font-size: 1rem;
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
