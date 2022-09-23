@@ -1,5 +1,4 @@
 table {
-    table-layout: fixed;
     border-collapse: collapse;
     border: 1px solid rgba(17, 17, 17, 0.151);
 }
@@ -17,6 +16,7 @@ table thead tr td {
 table tbody tr td {
     padding: .8rem 0 0 1rem;
     font-size: .9rem;
+    text-transform: capitalize;
 }
 
 table tbody tr:last-child td {
@@ -27,6 +27,4 @@ table .detalles {
     color: #408AB7;
     font-size: 1.3rem;
     cursor: pointer;
-    height: 20.8px;
-    width: 20.8px;
 }

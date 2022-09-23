@@ -13,7 +13,7 @@ Práctica con firebase.
 - Editar
 - Stock en color rojo si es bajo (actualmente a partir de 5 unidades, configurable a futuro)
 
-## Carrito (sin terminar)
+## Carrito
 
 - Consultar por nombre y/o descripción
 - Agregar (solo si hay stock disponible)
@@ -21,18 +21,24 @@ Práctica con firebase.
 - Limpiar carrito
 - Elegir cantidades (limitado segun el stock disponible)
 - Precio final por producto en base al precio unitario, unidades e iva
+- Ver monto final
+- Cerrar venta, con registro y descuento de stock
 
-### Pendientes en modulo Carrito
+## Ventas (sin terminar)
 
-- Mostrar monto final
-- Cerrar venta (con descuento de stock)
-- Registrar venta
+- Lista de ventas registradas
+- Ver detalles
+
+### Pendientes en modulo Ventas
+
+- Consultas en rangos de tiempo
+- Calculo de ingresos totales de un dia indicado
 
 # Como usar
 
 Actualmente no esta pensado para ser probado. Si queres hacerlo necesitas:
 
-- Dar de alta una database en Cloud Firestore con una colección llamada "productos"
+- Dar de alta una database en Cloud Firestore con una colección llamada "productos" y otra llamada "ventas"
 - Permitir la lectura/escritura en las reglas
 - Crear un archivo .env y agregar las variables de configuración de firebase segun a como son llamadas en el archivo "src/firebase/firebaseConfig.js" 
 

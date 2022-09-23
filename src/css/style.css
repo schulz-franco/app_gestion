@@ -305,7 +305,8 @@ form.buscar input::placeholder {
   text-align: center; }
 
 .carrito-container {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px 8px rgba(17, 17, 17, 0.11); }
 
 .carrito-container .lista {
   display: grid;
@@ -398,7 +399,6 @@ form.buscar input::placeholder {
   border: 1px solid rgba(17, 17, 17, 0.151); }
 
 table {
-  table-layout: fixed;
   border-collapse: collapse;
   border: 1px solid rgba(17, 17, 17, 0.151); }
 
@@ -412,7 +412,8 @@ table thead tr td {
 
 table tbody tr td {
   padding: .8rem 0 0 1rem;
-  font-size: .9rem; }
+  font-size: .9rem;
+  text-transform: capitalize; }
 
 table tbody tr:last-child td {
   padding-bottom: .8rem; }
@@ -420,8 +421,34 @@ table tbody tr:last-child td {
 table .detalles {
   color: #408AB7;
   font-size: 1.3rem;
+  cursor: pointer; }
+
+table .modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto min-content;
+  align-content: center;
+  justify-content: center;
+  z-index: 2; }
+
+table .modal-container table {
+  background-color: #fff; }
+
+table .modal-container thead tr td:last-child {
+  padding-right: 1rem; }
+
+table .modal-container button {
+  border: none;
+  background-color: #408AB7;
+  padding: .5rem .8rem;
   cursor: pointer;
-  height: 20.8px;
-  width: 20.8px; }
+  color: rgba(255, 255, 255, 0.89);
+  font-weight: bold;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
