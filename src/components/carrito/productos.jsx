@@ -2,10 +2,6 @@ import { useContext } from "react"
 import { ProductosContext } from "../../context/productosContext"
 import { MdAddCircle } from "react-icons/md"
 
-const styleProductoCarrito = {
-    gridTemplateColumns: "1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr"
-}
-
 const styleBotonAgregar = (stock)=> {
     let disponible = stock > 0 ? true : false
     return {
@@ -37,16 +33,14 @@ const Producto = ({ id, producto, setCarrito, carrito })=> {
     } : undefined
 
     return(
-        <div>
-            <div style={styleProductoCarrito} className="producto">
-                <span className="name">{producto.producto}</span>
-                <span className="text">{producto.descripcion}</span>
-                <span className="price">$ {producto.precio}</span>
-                <span style={styleStockWarning} className="number">{producto.stock}</span>
-                <span className="number">{producto.iva}%</span>
-                <MdAddCircle onClick={()=> agregarCarrito(id, producto, setCarrito, carrito)} style={styleBotonAgregar(producto.stock)} className="add" />
-            </div>
-        </div>
+        <tr>
+            <td>{producto.producto}</td>
+            <td>{producto.descripcion}</td>
+            <td>$ {producto.precio}</td>
+            <td style={styleStockWarning}>{producto.stock}</td>
+            <td>{producto.iva}%</td>
+            <td><MdAddCircle onClick={()=> agregarCarrito(id, producto, setCarrito, carrito)} style={styleBotonAgregar(producto.stock)} className="add" /></td>
+        </tr>
     )
 }
 
@@ -55,26 +49,28 @@ const ListaProductos = () => {
     const { productos, setCarrito, carrito } = useContext(ProductosContext)
 
     if (productos) return (
-        <div className="lista-productos">
-            <div style={styleProductoCarrito} className="producto title">
-                <span>Producto</span>
-                <span>Descripción</span>
-                <span>Precio</span>
-                <span>Stock</span>
-                <span>P.Iva</span>
-                <span>Agregar</span>
-            </div>
-            <div className="productos">
-                {productos.length < 1 && 
-                    <span className="sin-resultados">Sin resultados</span>
-                }
+        <table>
+            <thead>
+                <tr>
+                    <td>Producto</td>
+                    <td>Descripción</td>
+                    <td>Precio</td>
+                    <td>Stock</td>
+                    <td>P. Iva</td>
+                    <td>Agregar</td>
+                </tr>
+            </thead>
+            <tbody>
                 {productos.map(producto => {
                     return(
                         <Producto key={producto[0]} id={producto[0]} producto={producto[1]} setCarrito={setCarrito} carrito={carrito} />
                     )
                 })}
-            </div>
-        </div>
+                {productos.length < 1 && 
+                    <span className="sin-resultados">Sin resultados</span>
+                }
+            </tbody>
+        </table>
     )
 }
 

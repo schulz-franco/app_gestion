@@ -87,20 +87,18 @@ const Producto = ({ id, producto })=> {
     } : undefined
 
     return(
-        <div>
+        <tr>
+            <td>{producto.producto}</td>
+            <td>{producto.descripcion}</td>
+            <td>$ {producto.precio}</td>
+            <td style={styleStockWarning}>{producto.stock}</td>
+            <td>{producto.iva}%</td>
+            <td><GoPencil onClick={()=> setModal([true, "edit"])} className="edit" /></td>
+            <td><FaTrash onClick={()=> setModal([true, "delete"])} className="delete" /></td>
             {modal[0] && 
                 <Modal mode={modal[1]} setModal={setModal} id={id} producto={producto}/>
             }
-            <div className="producto">
-                <span className="name">{producto.producto}</span>
-                <span className="text">{producto.descripcion}</span>
-                <span className="price">$ {producto.precio}</span>
-                <span style={styleStockWarning} className="number">{producto.stock}</span>
-                <span className="number">{producto.iva}%</span>
-                <GoPencil onClick={()=> setModal([true, "edit"])} className="edit" />
-                <FaTrash onClick={()=> setModal([true, "delete"])} className="delete" />
-            </div>
-        </div>
+        </tr>
     )
 }
 
@@ -109,27 +107,29 @@ const ListaProductos = () => {
     const { productos } = useContext(ProductosContext)
 
     if (productos) return (
-        <div className="lista-productos">
-            <div className="producto title">
-                <span>Producto</span>
-                <span>Descripción</span>
-                <span>Precio</span>
-                <span>Stock</span>
-                <span>P.Iva</span>
-                <span>Editar</span>
-                <span>Eliminar</span>
-            </div>
-            <div className="productos">
-                {productos.length < 1 && 
-                    <span className="sin-resultados">Sin resultados</span>
-                }
+        <table>
+            <thead>
+                <tr>
+                    <td>Producto</td>
+                    <td>Descripción</td>
+                    <td>Precio</td>
+                    <td>Stock</td>
+                    <td>P. Iva</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+            <tbody>
                 {productos.map(producto => {
                     return(
                         <Producto key={producto[0]} id={producto[0]} producto={producto[1]} />
                     )
                 })}
-            </div>
-        </div>
+                {productos.length < 1 && 
+                    <span className="sin-resultados">Sin resultados</span>
+                }
+            </tbody>
+        </table>
     )
 }
 

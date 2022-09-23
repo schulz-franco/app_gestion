@@ -1,75 +1,15 @@
-.lista-productos {
-    display: grid;
-    grid-template-columns: auto;
-    grid-auto-rows: min-content;
-    border-radius: 2px;
-    box-shadow: 0 0 20px 8px rgba(17, 17, 17, 0.11);
-    border: 1px solid rgba(17, 17, 17, 0.151);
-}
-
-.lista-productos .productos {
-    display: grid;
-    grid-template-columns: auto;
-    grid-auto-rows: min-content;
-    padding: 0 1rem .8rem 1rem;
-}
-
-.lista-productos .producto {
-    display: grid;
-    grid-template-columns: 1.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
-    grid-template-rows: min-content;
-    align-items: center;
-    padding-top: .8rem;
-}
-
-.lista-productos .producto span {
-    text-transform: capitalize;
-    opacity: 0.8;
-    font-size: .9rem;
-}
-
-.lista-productos .producto .price {
-    opacity: 1;
-}
-
-.lista-productos .producto.title {
-    margin-top: 0;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(17, 17, 17, 0.151);
-}
-
-.lista-productos .producto.title span {
-    font-weight: bold;
-    opacity: 1;
-}
-
-.producto button {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    border: none;
-    background-color: #408AB7;
-    width: max-content;
-    height: max-content;
-    padding: .5rem .8rem;
-    border-radius: 4px;
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.89);
-    font-weight: bold;
-}
-
-.lista-productos .producto .edit {
+table .edit {
     color: #408AB7;
     font-size: 1.2rem;
     cursor: pointer;
 }
 
-.lista-productos .producto .delete {
+table .delete {
     color: #d13636;
     cursor: pointer;
 }
 
-.lista-productos .modal-container {
+table .modal-container {
     position: fixed;
     left: 0;
     right: 0;
@@ -83,42 +23,41 @@
     z-index: 2;
 }
 
-.lista-productos .modal {
+table .modal {
     display: grid;
     row-gap: .5rem;
     column-gap: .5rem;
     background-color: #fff;
     padding: 1.2rem;
-    border-radius: 4px;
-    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.199);
+    border: 1px solid rgba(17, 17, 17, 0.151);
 }
 
-.lista-productos .modal-delete {
+table .modal-delete {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content min-content;
 }
 
-.lista-productos .modal-edit {
+table .modal-edit {
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
     width: 300px;
 }
 
-.lista-productos .modal .acceptMessage {
+table .modal .acceptMessage {
     grid-column: 1/3;
     grid-row: 1/2;
     font-size: 1rem;
     text-align: center;
 }
 
-.lista-productos .modal input {
+table .modal input {
     outline: none;
     padding: .6rem .8rem;
     border: 1px solid rgba(17, 17, 17, 0.185);
     color: rgba(17, 17, 17, 0.822);
 }
 
-.lista-productos .modal label {
+table .modal label {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content min-content;
@@ -127,12 +66,12 @@
     color: rgba(0, 0, 0, 0.747);
 }
 
-.lista-productos .modal .errorMessage {
+table .modal .errorMessage {
     font-size: .9rem;
     color: red;
 }
 
-.lista-productos .modal button {
+table .modal button {
     border: none;
     background-color: #408AB7;
     padding: .5rem .8rem;
@@ -142,15 +81,15 @@
     font-weight: bold;
 }
 
-.lista-productos .modal .accept {
+table .modal .accept {
     background-color: #d13636;
 }
 
-.lista-productos .modal input.error {
+table .modal input.error {
     border-color: red;
 }
 
-.lista-productos .productos .sin-resultados {
+table .productos .sin-resultados {
     font-size: .9rem;
     padding-top: .5rem;
     text-align: center;
