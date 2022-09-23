@@ -26,7 +26,7 @@ export const eliminarProducto = async (id) => {
 }
 
 export const listarProductos = async (database, setProductos, search)=> {
-    return database.collection("productos").onSnapshot(snap => {
+    database.collection("productos").onSnapshot(snap => {
         let collection = []
         if (!search) {
             snap.forEach(doc => {
@@ -47,12 +47,17 @@ const objetoDate = new Date();
 
 export const cerrarVenta = async (database, carrito, montoTotal)=> {	
     let fechaActual = objetoDate.getDate() + '-' + ( objetoDate.getMonth() + 1 ) + '-' + objetoDate.getFullYear();
-    let horaActual = objetoDate.getHours() + ':' + objetoDate.getMinutes() + ':' + objetoDate.getSeconds(); 
+    let horaActual = objetoDate.getHours().toString().padStart(2, '0') + ':' + objetoDate.getMinutes(); 
     let items = []
     let unidades = unidadesCarrito()
     carrito.map((producto, index) => {
         items.push({
-            producto: producto[1],
+            producto: {
+                producto: producto[1].producto,
+                descripcion: producto[1].descripcion,
+                precio: producto[1].precio,
+                iva: producto[1].iva
+            },
             cantidad: unidades[index]
         })
         database.collection("productos").doc(producto[0]).update({
@@ -64,5 +69,15 @@ export const cerrarVenta = async (database, carrito, montoTotal)=> {
         fecha: fechaActual,
         hora: horaActual,
         monto: montoTotal
+    })
+}
+
+export const listarVentas = async (database, setVentas)=> {
+    database.collection("ventas").onSnapshot(snap => {
+        let collection = []
+        snap.forEach(doc => {
+            collection.push([doc.id, doc.data()])
+        })
+        setVentas(collection)
     })
 }

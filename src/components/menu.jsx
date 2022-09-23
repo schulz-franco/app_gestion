@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { FaDatabase } from "react-icons/fa"
-import { MdSell } from "react-icons/md"
+import { MdSell, MdAttachMoney } from "react-icons/md"
 import { useContext } from "react"
 import { ProductosContext } from "../context/productosContext"
 
@@ -28,6 +28,10 @@ const Menu = ()=> {
 				<Link onClick={(ev)=> onClickHandler(ev, setSearch)} to="/carrito">
 					<MdSell className="icon" />
 					Carrito
+				</Link>
+				<Link onClick={(ev)=> onClickHandler(ev, setSearch)} to="/ventas">
+					<MdAttachMoney className="icon" />
+					Ventas
 				</Link>
 			</div>
 		</div>

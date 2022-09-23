@@ -5,6 +5,7 @@ import "./css/style.css"
 import Menu from './components/menu';
 import PageProductos from "./pages/productos/index";
 import PageCarrito from './pages/carrito';
+import PageVentas from './pages/ventas';
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
         }/>
         <Route path='/carrito' element={
           <PageCarrito />
+        }/>
+        <Route path='/ventas' element={
+          <PageVentas />
         }/>
       </Routes>
     </ProductosContextProvider>
