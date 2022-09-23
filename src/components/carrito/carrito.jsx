@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import { ProductosContext } from "../../context/productosContext"
 import { database } from "../../firebase/firebaseConfig"
-import { descontarStocks } from "../../firebase/methods"
+import { cerrarVenta } from "../../firebase/methods"
 import { FaTrash } from "react-icons/fa"
 
 const onClickUnidadesHandler = (operacion, unidades, setUnidades, productoStock)=> {
@@ -59,8 +59,8 @@ const onClickLimpiarCarritoHandler = (setCarrito)=> {
 	setCarrito([])
 }
 
-const onClickCerrarVentaHandler = (carrito, setCarrito)=> {
-	descontarStocks(database, carrito)
+const onClickCerrarVentaHandler = (carrito, setCarrito, montoTotal)=> {
+	cerrarVenta(database, carrito, montoTotal)
 	setCarrito([])
 }
 
@@ -93,7 +93,7 @@ const Carrito = () => {
 			{carrito.length > 0 && 
 				<div className="buttons">
 					<button onClick={()=> onClickLimpiarCarritoHandler(setCarrito)}>Limpiar carrito</button>
-					<button onClick={()=> onClickCerrarVentaHandler(carrito, setCarrito)}>Cerrar venta</button>
+					<button onClick={()=> onClickCerrarVentaHandler(carrito, setCarrito, montoTotal)}>Cerrar venta</button>
 					<span></span>
 					<span>{carrito.length > 0 ? "TOTAL $ " + montoTotal.toLocaleString('en-US') : undefined}</span>
 				</div>

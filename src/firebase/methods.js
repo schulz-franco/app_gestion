@@ -43,11 +43,26 @@ export const listarProductos = async (database, setProductos, search)=> {
     })
 }
 
-export const descontarStocks = async (database, carrito)=> {
+const objetoDate = new Date();
+
+export const cerrarVenta = async (database, carrito, montoTotal)=> {	
+    let fechaActual = objetoDate.getDate() + '-' + ( objetoDate.getMonth() + 1 ) + '-' + objetoDate.getFullYear();
+    let horaActual = objetoDate.getHours() + ':' + objetoDate.getMinutes() + ':' + objetoDate.getSeconds(); 
+    let items = []
     let unidades = unidadesCarrito()
     carrito.map((producto, index) => {
-        return database.collection("productos").doc(producto[0]).update({
+        items.push({
+            producto: producto[1],
+            cantidad: unidades[index]
+        })
+        database.collection("productos").doc(producto[0]).update({
             stock: parseInt(producto[1].stock) - parseInt(unidades[index])
         })
+    })
+    database.collection("ventas").add({
+        productos: items,
+        fecha: fechaActual,
+        hora: horaActual,
+        monto: montoTotal
     })
 }

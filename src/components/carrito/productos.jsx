@@ -12,7 +12,7 @@ const styleBotonAgregar = (stock)=> {
         width: "min-content",
         color: disponible ? "#54b740" : "#d13636",
         background: "none",
-        fontSize: "1.4rem",
+        fontSize: "1.3rem",
         cursor: disponible ? "pointer" : "auto"
     }
 }
