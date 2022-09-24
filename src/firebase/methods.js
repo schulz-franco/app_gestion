@@ -72,6 +72,13 @@ export const cerrarVenta = async (database, carrito, montoTotal)=> {
     })
 }
 
+export const actualizarStock = async (id, stockActual, stockNuevo) => {
+    let stockActualizado = parseInt(stockActual) + parseInt(stockNuevo)
+    database.collection("productos").doc(id).update({
+        stock: stockActualizado
+    })
+}
+
 export const listarVentas = async (database, setVentas)=> {
     database.collection("ventas").onSnapshot(snap => {
         let collection = []

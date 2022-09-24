@@ -1,5 +1,41 @@
-import { BsFillCircleFill } from "react-icons/bs"
+import { useState } from "react"
 import useStock from "../../hooks/useStock"
+import { actualizarStock } from "../../firebase/methods"
+import { BsFillCircleFill } from "react-icons/bs"
+import { MdAddCircle } from "react-icons/md"
+
+const onSubmitActualizarStockHandler = (ev, id, setModal)=> {
+	ev.preventDefault()
+	let stockActual = ev.target.firstChild.lastChild.value
+	let nuevoStock = ev.target.firstChild.nextSibling.lastChild.value
+	actualizarStock(id, stockActual, nuevoStock)
+	setModal(false)
+}
+
+const StockProducto = ({ mode, producto })=> {
+	
+	const [modal, setModal] = useState(false)
+	
+	return(
+		<tr>
+			<td>{producto[1].producto}</td>
+			<td>{producto[1].descripcion}</td>
+			<td>{producto[1].stock}</td>
+			<td><BsFillCircleFill style={{fontSize: ".8rem", color: mode === "bajo" ? "red" : "orange"}} /></td>
+			<td><MdAddCircle onClick={()=> setModal(true)} className='detalles' /></td>
+			{modal && 
+                <div className="modal-container">
+                <form onSubmit={(ev)=> onSubmitActualizarStockHandler(ev, producto[0], setModal)} className="modal modal-edit">
+                    <label>Actual<input readOnly defaultValue={producto[1].stock} type="number" /></label>
+                    <label>Agregar<input required type="number" /></label>
+                    <button type="submit">Actualizar</button>
+                    <button onClick={()=> setModal(false)} className="accept">Cancelar</button>
+                </form>
+            </div>
+            }
+		</tr>
+	)
+}
 
 const Stock = () => {
 
@@ -13,27 +49,18 @@ const Stock = () => {
 					<td>Descripción</td>
 					<td>Stock</td>
 					<td>Nivel de stock</td>
+					<td>Actualizar</td>
 				</tr>
 			</thead>
 			<tbody>
 				{stockBajo.length > 0 && stockBajo.map(producto => {
 					return(
-						<tr key={producto[0]}>
-							<td>{producto[1].producto}</td>
-							<td>{producto[1].descripcion}</td>
-							<td>{producto[1].stock}</td>
-							<td><BsFillCircleFill style={{fontSize: ".8rem", color: "red"}} /></td>
-						</tr>
+						<StockProducto key={producto[0]} mode="bajo" producto={producto} />
 					)
 				})}
 				{stockMedio.length > 0 && stockMedio.map(producto => {
 					return(
-						<tr key={producto[0]}>
-							<td>{producto[1].producto}</td>
-							<td>{producto[1].descripcion}</td>
-							<td>{producto[1].stock}</td>
-							<td><BsFillCircleFill style={{fontSize: ".8rem", color: "orange"}} /></td>
-						</tr>
+						<StockProducto key={producto[0]} producto={producto} />
 					)
 				})}
 				{(stockBajo.length === 0 && stockMedio.length === 0) && 

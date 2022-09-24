@@ -10,7 +10,7 @@ Práctica con firebase.
 - Agregar
 - Consultar por nombre y/o descripción
 - Eliminar
-- Editar
+- Editar (nombre, descripcion, precio, stock, iva)
 - Stock en color rojo si es bajo (actualmente a partir de 5 unidades, configurable a futuro)
 
 ## Carrito
@@ -24,6 +24,11 @@ Práctica con firebase.
 - Ver monto final
 - Cerrar venta, con registro y descuento de stock
 
+## Stock
+
+- Listar todos los productos que posean un stock bajo clasificados por: rojo (muy bajo) y naranja (bajo)
+- Actualizar (agregar) stock
+
 ## Ventas (sin terminar)
 
 - Lista de ventas registradas
@@ -31,8 +36,8 @@ Práctica con firebase.
 
 ### Pendientes en modulo Ventas
 
-- Consultas en rangos de tiempo
-- Calculo de ingresos totales de un dia indicado
+- Consultar dia especifico
+- Calcular ingresos totales de ese dia
 
 # Como usar
 

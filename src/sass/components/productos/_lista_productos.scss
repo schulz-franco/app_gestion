@@ -32,6 +32,33 @@ table .modal {
     border: 1px solid rgba(17, 17, 17, 0.151);
 }
 
+table .modal-stock {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: min-content;
+    row-gap: .5rem;
+    padding: 1.2rem;
+    background-color: #fff;
+    border: 1px solid rgba(17, 17, 17, 0.151);
+}
+
+table .modal-stock label {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows:  min-content min-content;
+    row-gap: 0.2rem;
+    font-size: .9rem;
+}
+
+table .modal-stock input {
+    outline: none;
+    margin-top: .5rem;
+    padding: .4rem .4rem .4rem .6rem;
+    border: 1px solid rgba(17, 17, 17, 0.116);
+    color: rgba(17, 17, 17, 0.822);
+    min-width: 6rem;
+}
+
 table .modal-delete {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content min-content;

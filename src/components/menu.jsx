@@ -2,7 +2,8 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { ProductosContext } from "../context/productosContext"
 import { FaDatabase } from "react-icons/fa"
-import { MdSell, MdAttachMoney, MdNotificationImportant } from "react-icons/md"
+import { MdSell, MdAttachMoney } from "react-icons/md"
+import { BsFillBellFill } from "react-icons/bs"
 
 const onClickHandler = (ev, setSearch)=> {
 	ev.target.parentNode.childNodes.forEach(node => {
@@ -34,7 +35,7 @@ const Menu = ()=> {
 					Ventas
 				</Link>
 				<Link onClick={(ev)=> onClickHandler(ev)} to="/stock">
-					<MdNotificationImportant className="icon" />
+					<BsFillBellFill className="icon" />
 					Stock
 				</Link>
 			</div>
