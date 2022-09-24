@@ -6,25 +6,29 @@ import Menu from './components/menu';
 import PageProductos from "./pages/productos/index";
 import PageCarrito from './pages/carrito';
 import PageVentas from './pages/ventas';
+import PageStock from './pages/stock';
 
 function App() {
 
   return (
     <BrowserRouter>
-    <ProductosContextProvider>
-    <Menu />
-      <Routes>
-        <Route path='/productos' element={
-          <PageProductos />
-        }/>
-        <Route path='/carrito' element={
-          <PageCarrito />
-        }/>
-        <Route path='/ventas' element={
-          <PageVentas />
-        }/>
-      </Routes>
-    </ProductosContextProvider>
+      <ProductosContextProvider>
+        <Menu />
+          <Routes>
+            <Route path='/productos' element={
+              <PageProductos />
+            }/>
+            <Route path='/carrito' element={
+              <PageCarrito />
+            }/>
+            <Route path='/ventas' element={
+              <PageVentas />
+            }/>
+            <Route path='/stock' element={
+              <PageStock />
+            }/>
+          </Routes>
+      </ProductosContextProvider>
     </BrowserRouter>
   );
 }

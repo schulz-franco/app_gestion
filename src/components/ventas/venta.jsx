@@ -32,9 +32,9 @@ const Venta = ({ venta })=> {
                             </tr>
                         </thead>
                         <tbody>
-                            {venta.productos.map(producto => {
+                            {venta.productos.map((producto, index) => {
                                 return(
-                                    <tr>
+                                    <tr key={index}>
                                         <td>{producto.producto.producto}</td>
                                         <td>$ {producto.producto.precio}</td>
                                         <td>{producto.producto.iva}%</td>

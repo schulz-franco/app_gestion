@@ -43,11 +43,11 @@ export const listarProductos = async (database, setProductos, search)=> {
     })
 }
 
-const objetoDate = new Date();
 
 export const cerrarVenta = async (database, carrito, montoTotal)=> {	
-    let fechaActual = objetoDate.getDate() + '-' + ( objetoDate.getMonth() + 1 ) + '-' + objetoDate.getFullYear();
-    let horaActual = objetoDate.getHours().toString().padStart(2, '0') + ':' + objetoDate.getMinutes(); 
+    const objetoDate = new Date();
+    let fechaActual = objetoDate.getFullYear() + "-" + (objetoDate.getMonth() + 1).toString().padStart(2, '0') + '-' + objetoDate.getDate().toString().padStart(2, '0')
+    let horaActual = objetoDate.getHours().toString().padStart(2, '0') + ':' + objetoDate.getMinutes().toString().padStart(2, '0'); 
     let items = []
     let unidades = unidadesCarrito()
     carrito.map((producto, index) => {

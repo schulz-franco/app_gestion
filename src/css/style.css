@@ -373,6 +373,14 @@ table .detalles {
   font-size: 1.3rem;
   cursor: pointer; }
 
+.consulta {
+  padding-bottom: 1rem; }
+
+.consulta input {
+  padding: .2rem;
+  outline: none;
+  border: 1px solid rgba(17, 17, 17, 0.336); }
+
 table .modal-container {
   position: fixed;
   left: 0;

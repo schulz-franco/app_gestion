@@ -4,16 +4,17 @@ import { listarVentas } from "../firebase/methods"
 
 const useListaVentas = () => {
 
-  const [ventas, setVentas] = useState(null)
+	const [ventas, setVentas] = useState(null)
 
-  useEffect(()=> {
-    listarVentas(database, setVentas)
-    return ()=> listarVentas(database, setVentas)
-  }, [])
+	useEffect(()=> {
+		listarVentas(database, setVentas)
+		return ()=> listarVentas(database, setVentas)
+	}, [])
 
-  return {
-    ventas
-  }
+	return {
+		ventas,
+		setVentas
+	}
 }
 
 export default useListaVentas
