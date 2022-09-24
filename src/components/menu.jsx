@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom"
-import { FaDatabase } from "react-icons/fa"
-import { MdSell, MdAttachMoney } from "react-icons/md"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { ProductosContext } from "../context/productosContext"
+import { FaDatabase } from "react-icons/fa"
+import { MdSell, MdAttachMoney, MdNotificationImportant } from "react-icons/md"
 
 const onClickHandler = (ev, setSearch)=> {
 	ev.target.parentNode.childNodes.forEach(node => {
 		node.classList.remove("current")
 	})
 	ev.target.classList.add("current")
-	setSearch(null)
+	setSearch && setSearch(null)
 }
 
 const Menu = ()=> {
@@ -26,12 +26,16 @@ const Menu = ()=> {
 					Productos
 				</Link>
 				<Link onClick={(ev)=> onClickHandler(ev, setSearch)} to="/carrito">
-					<MdSell className="icon" />
+					<MdAttachMoney className="icon" />
 					Carrito
 				</Link>
-				<Link onClick={(ev)=> onClickHandler(ev, setSearch)} to="/ventas">
-					<MdAttachMoney className="icon" />
+				<Link onClick={(ev)=> onClickHandler(ev)} to="/ventas">
+					<MdSell className="icon" />
 					Ventas
+				</Link>
+				<Link onClick={(ev)=> onClickHandler(ev)} to="/stock">
+					<MdNotificationImportant className="icon" />
+					Stock
 				</Link>
 			</div>
 		</div>

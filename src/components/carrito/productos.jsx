@@ -67,7 +67,9 @@ const ListaProductos = () => {
                     )
                 })}
                 {productos.length < 1 && 
-                    <span className="sin-resultados">Sin resultados</span>
+                    <tr>
+                        <td style={{textTransform: "none"}}>Sin resultados</td>
+                    </tr>
                 }
             </tbody>
         </table>

@@ -1,59 +1,8 @@
-import { useState, useContext, useEffect } from "react"
-import { ProductosContext } from "../../context/productosContext"
+import { useContext } from "react"
 import { database } from "../../firebase/firebaseConfig"
 import { cerrarVenta } from "../../firebase/methods"
-import { FaTrash } from "react-icons/fa"
-
-const onClickUnidadesHandler = (operacion, unidades, setUnidades, productoStock)=> {
-	if (operacion === "+") {
-		if (unidades < productoStock) setUnidades(unidades + 1)
-		return
-	}
-	if (unidades >= 2) {
-		return setUnidades(unidades - 1)
-	}
-}
-
-const onClickQuitarHandler = (id, carrito, setCarrito)=> {
-	const carritoActualizado = carrito.filter(producto => producto[0] !== id)
-	setCarrito(carritoActualizado)
-}
-
-const ProductoCarrito = ({ id, producto, carrito, setCarrito, setMontoTotal })=> {
-
-	const [unidades, setUnidades] = useState(1)
-
-	const iva = parseFloat("1." + producto.iva)
-	const precioFinal = ((producto.precio * unidades) * iva).toFixed()
-
-	useEffect(()=> {
-		if (carrito.length > 0) {
-			const listaCarrito = document.querySelector("#root > div.main-container > div.carrito-container > div.lista").childNodes
-			let precioTotal = 0
-			listaCarrito.forEach(producto => {
-				precioTotal += parseInt(producto.lastChild.previousSibling.lastChild.textContent)
-			})
-			setMontoTotal(precioTotal)
-		}
-	}, [carrito, unidades])
-
-	return(
-		<div className="producto">
-			<span>{producto.producto}</span>
-			<span>{producto.descripcion}</span>
-			<span>$ {producto.precio}</span>
-			<span>{producto.stock}</span>
-			<span>{producto.iva}%</span>
-			<div className="unidades-container">
-				<button onClick={()=> onClickUnidadesHandler("-", unidades, setUnidades, producto.stock)}>-</button>
-				<input readOnly value={unidades} type="number" name="unidades" />
-				<button onClick={()=> onClickUnidadesHandler("+", unidades, setUnidades, producto.stock)}>+</button>
-			</div>
-			<span>$ {precioFinal}</span>
-			<FaTrash className="delete" onClick={()=> onClickQuitarHandler(id, carrito, setCarrito)} />
-		</div>
-	)
-}
+import { ProductosContext } from "../../context/productosContext"
+import ProductoCarrito from "./productoCarrito"
 
 const onClickLimpiarCarritoHandler = (setCarrito)=> {
 	setCarrito([])
