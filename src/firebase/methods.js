@@ -79,12 +79,22 @@ export const actualizarStock = async (id, stockActual, stockNuevo) => {
     })
 }
 
-export const listarVentas = async (database, setVentas)=> {
-    database.collection("ventas").onSnapshot(snap => {
-        let collection = []
-        snap.forEach(doc => {
-            collection.push([doc.id, doc.data()])
+export const listarVentas = async (database, setVentas, fecha)=> {
+    if (!fecha) {
+        database.collection("ventas").onSnapshot(snap => {
+            let collection = []
+            snap.forEach(doc => {
+                collection.push([doc.id, doc.data()])
+            })
+            setVentas(collection)
         })
-        setVentas(collection)
-    })
+    } else {
+        database.collection("ventas").where("fecha", "==", fecha).onSnapshot(snap => {
+            let collection = []
+            snap.forEach(doc => {
+                collection.push([doc.id, doc.data()])
+            })
+            setVentas(collection)
+        })
+    }
 }

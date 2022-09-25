@@ -33,10 +33,10 @@ Práctica con firebase.
 
 - Lista de ventas registradas
 - Ver detalles
+- Consultar dia especifico
 
 ### Pendientes en modulo Ventas
 
-- Consultar dia especifico
 - Calcular ingresos totales de ese dia
 
 # Como usar

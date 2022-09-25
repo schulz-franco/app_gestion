@@ -5,15 +5,16 @@ import { listarVentas } from "../firebase/methods"
 const useListaVentas = () => {
 
 	const [ventas, setVentas] = useState(null)
+	const [fecha, setFecha] = useState(null)
 
 	useEffect(()=> {
-		listarVentas(database, setVentas)
-		return ()=> listarVentas(database, setVentas)
-	}, [])
+		listarVentas(database, setVentas, fecha)
+	}, [fecha])
 
 	return {
 		ventas,
-		setVentas
+		setVentas,
+		setFecha
 	}
 }
 

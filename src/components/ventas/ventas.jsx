@@ -1,34 +1,44 @@
 import useListaVentas from '../../hooks/useListaVentas'
 import Venta from "./venta"
 
+const onChangeInputDateHandler = (ev, setFecha)=> {
+    const fecha = ev.target.value
+    setFecha(fecha)
+}
+
 const ListaVentas = () => {
     
-    const { ventas } = useListaVentas()    
+    const { ventas, setFecha } = useListaVentas()    
     
     return (
-        <table>
-            <thead className='header'>
-                <tr>
-                    <td>Fecha</td>
-                    <td>Hora</td>
-                    <td>Monto</td>
-                    <td>Cantidad de productos</td>
-                    <td>Detalles</td>
-                </tr>
-            </thead>
-            <tbody>
-                {ventas && ventas.map(venta => {
-                    return(
-                        <Venta key={venta[0]} venta={venta[1]} />
-                    )
-                })}
-                {(!ventas || ventas.length < 1) && 
+        <>
+            <div className="consulta">
+                <input onChange={(ev)=> onChangeInputDateHandler(ev, setFecha)} type="date" />
+            </div>
+            <table>
+                <thead className='header'>
                     <tr>
-                        <td style={{textTransform: "none"}}>No hay ventas registradas</td>
+                        <td>Fecha</td>
+                        <td>Hora</td>
+                        <td>Monto</td>
+                        <td>Cantidad de productos</td>
+                        <td>Detalles</td>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {ventas && ventas.map(venta => {
+                        return(
+                            <Venta key={venta[0]} venta={venta[1]} />
+                        )
+                    })}
+                    {(!ventas || ventas.length < 1) && 
+                        <tr>
+                            <td style={{textTransform: "none"}}>No hay ventas registradas</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </>
     )
 }
     

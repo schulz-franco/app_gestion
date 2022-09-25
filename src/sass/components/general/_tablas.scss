@@ -23,6 +23,14 @@ table tbody tr:last-child td {
     padding-bottom: .8rem;
 }
 
+table .modal-container table tbody td {
+    padding-bottom: 0;
+}
+
+table .modal-container table tbody tr:last-child td {
+    padding-bottom: .8rem;
+}
+
 table .detalles {
     color: #408AB7;
     font-size: 1.3rem;
