@@ -79,7 +79,7 @@
 
 .carrito-container .buttons {
     display: grid;
-    grid-template-columns: max-content max-content auto max-content;
+    grid-template-columns: max-content max-content;
     grid-template-rows: min-content;
     align-items: center;
     column-gap: .5rem;
@@ -98,10 +98,4 @@
 
 .carrito-container .buttons button:nth-child(1) {
     background-color: #d13636;
-}
-
-.carrito-container .buttons span:nth-child(4) {
-    font-size: .9rem;
-    padding: .3rem 1rem .2rem 1rem;
-    border: 1px solid rgba(17, 17, 17, 0.151);
 }

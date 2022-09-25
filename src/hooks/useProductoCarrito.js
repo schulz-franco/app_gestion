@@ -8,7 +8,9 @@ const useProductoCarrito = (setMontoTotal, carrito) => {
 			const listaCarrito = document.querySelector("#root > div.main-container > div.carrito-container > div.lista").childNodes
 			let precioTotal = 0
 			listaCarrito.forEach(producto => {
-				precioTotal += parseInt(producto.lastChild.previousSibling.lastChild.textContent)
+				try {
+					precioTotal += parseInt(producto.lastChild.previousSibling.lastChild.textContent)
+				} catch {}
 			})
 			setMontoTotal(precioTotal)
 		}

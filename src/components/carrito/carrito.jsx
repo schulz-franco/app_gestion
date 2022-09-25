@@ -35,6 +35,17 @@ const Carrito = () => {
 						<ProductoCarrito key={producto[0]} id={producto[0]} producto={producto[1]} carrito={carrito} setCarrito={setCarrito} setMontoTotal={setMontoTotal} />
 					)
 				})}
+				{carrito.length > 0 &&
+					<div className="producto">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span style={{fontWeight: "bold"}}>{"$ " + montoTotal.toLocaleString('en-US')}</span>
+					</div>
+				}
 				{carrito.length < 1 && 
 					<span className="vacio">Carrito vacío</span>
 				}
@@ -43,8 +54,6 @@ const Carrito = () => {
 				<div className="buttons">
 					<button onClick={()=> onClickLimpiarCarritoHandler(setCarrito)}>Limpiar carrito</button>
 					<button onClick={()=> onClickCerrarVentaHandler(carrito, setCarrito, montoTotal)}>Cerrar venta</button>
-					<span></span>
-					<span>{carrito.length > 0 ? "TOTAL $ " + montoTotal.toLocaleString('en-US') : undefined}</span>
 				</div>
 			}
 		</div>
