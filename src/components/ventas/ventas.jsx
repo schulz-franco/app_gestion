@@ -42,6 +42,13 @@ const ListaVentas = () => {
                             <Venta key={venta[0]} venta={venta[1]} />
                         )
                     })}
+                    {(fecha && ventas.length > 0) && 
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td style={{fontWeight: "bold"}}>$ {calcularMontoTotal(ventas, fecha)}</td>
+                        </tr>
+                    }
                     {(!ventas || ventas.length < 1) && 
                         <tr>
                             <td style={{textTransform: "none"}}>No hay ventas registradas</td>

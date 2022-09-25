@@ -29,14 +29,11 @@ Práctica con firebase.
 - Listar todos los productos que posean un stock bajo clasificados por: rojo (muy bajo) y naranja (bajo)
 - Actualizar (agregar) stock
 
-## Ventas (sin terminar)
+## Ventas
 
 - Lista de ventas registradas
 - Ver detalles
 - Consultar dia especifico
-
-### Pendientes en modulo Ventas
-
 - Calcular ingresos totales de ese dia
 
 # Como usar
