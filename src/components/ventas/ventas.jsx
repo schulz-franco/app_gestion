@@ -6,10 +6,21 @@ const onChangeInputDateHandler = (ev, setFecha)=> {
     setFecha(fecha)
 }
 
+const calcularMontoTotal = (ventas, fecha)=> {
+    if (fecha) {
+        let montoTotal = 0
+        ventas.map(venta => {
+            montoTotal += parseInt(venta[1].monto)
+        })    
+        return montoTotal
+    }
+    return null
+}
+
 const ListaVentas = () => {
     
-    const { ventas, setFecha } = useListaVentas()    
-    
+    const { ventas, fecha, setFecha } = useListaVentas()    
+
     return (
         <>
             <div className="consulta">

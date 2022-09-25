@@ -5,6 +5,10 @@ table .detalles {
 }
 
 .consulta {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-template-rows: min-content;
+    column-gap: .5rem;
     padding-bottom: 1rem;
 }
 
@@ -12,4 +16,9 @@ table .detalles {
     padding: .2rem;
     outline: none;
     border: 1px solid rgba(17, 17, 17, 0.336);
+}
+
+.consulta input:last-child {
+    width: min-content;
+    padding: .2rem .6rem;
 }

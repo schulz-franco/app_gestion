@@ -9,11 +9,13 @@ const useListaVentas = () => {
 
 	useEffect(()=> {
 		listarVentas(database, setVentas, fecha)
+		return ()=> listarVentas(database, setVentas, fecha)
 	}, [fecha])
 
 	return {
 		ventas,
 		setVentas,
+		fecha,
 		setFecha
 	}
 }
