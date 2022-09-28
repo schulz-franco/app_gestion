@@ -1,12 +1,14 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductosContextProvider } from './context/productosContext';
 import "./css/style.css"
 
 import Menu from './components/menu';
 import PageProductos from "./pages/productos/index";
-import PageCarrito from './pages/carrito';
-import PageVentas from './pages/ventas';
-import PageStock from './pages/stock';
+
+const PageCarrito = lazy(()=> import("./pages/carrito/index"))
+const PageVentas = lazy(()=> import("./pages/ventas/index"))
+const PageStock = lazy(()=> import("./pages/stock/index"))
 
 function App() {
 
@@ -14,20 +16,25 @@ function App() {
     <BrowserRouter>
       <ProductosContextProvider>
         <Menu />
-          <Routes>
-            <Route path='/productos' element={
-              <PageProductos />
-            }/>
-            <Route path='/carrito' element={
-              <PageCarrito />
-            }/>
-            <Route path='/ventas' element={
-              <PageVentas />
-            }/>
-            <Route path='/stock' element={
-              <PageStock />
-            }/>
-          </Routes>
+          <Suspense fallback={<></>}>
+            <Routes>
+              <Route path='/' element={
+                  <PageProductos />
+                }/>
+                <Route path='/productos' element={
+                  <PageProductos />
+                }/>
+                <Route path='/carrito' element={
+                  <PageCarrito />
+                }/>
+                <Route path='/ventas' element={
+                  <PageVentas />
+                }/>
+                <Route path='/stock' element={
+                  <PageStock />
+                }/>
+            </Routes>
+          </Suspense>
       </ProductosContextProvider>
     </BrowserRouter>
   );

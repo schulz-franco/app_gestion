@@ -229,9 +229,10 @@ table .modal {
 
 table .modal-stock {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr 1fr;
   grid-auto-rows: min-content;
   row-gap: .5rem;
+  column-gap: .5rem;
   padding: 1.2rem;
   background-color: #fff;
   border: 1px solid rgba(17, 17, 17, 0.151); }
@@ -245,7 +246,6 @@ table .modal-stock label {
 
 table .modal-stock input {
   outline: none;
-  margin-top: .5rem;
   padding: .4rem .4rem .4rem .6rem;
   border: 1px solid rgba(17, 17, 17, 0.116);
   color: rgba(17, 17, 17, 0.822);

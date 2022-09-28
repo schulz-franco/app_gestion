@@ -25,11 +25,11 @@ const StockProducto = ({ mode, producto })=> {
 			<td><MdAddCircle onClick={()=> setModal(true)} className='detalles' /></td>
 			{modal && 
                 <div className="modal-container">
-                <form onSubmit={(ev)=> onSubmitActualizarStockHandler(ev, producto[0], setModal)} className="modal modal-edit">
+                <form onSubmit={(ev)=> onSubmitActualizarStockHandler(ev, producto[0], setModal)} className="modal modal-stock">
                     <label>Actual<input readOnly defaultValue={producto[1].stock} type="number" /></label>
                     <label>Agregar<input required type="number" /></label>
-                    <button type="submit">Actualizar</button>
                     <button onClick={()=> setModal(false)} className="accept">Cancelar</button>
+                    <button type="submit">Actualizar</button>
                 </form>
             </div>
             }

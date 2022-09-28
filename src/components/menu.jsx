@@ -22,7 +22,7 @@ const Menu = ()=> {
 			<div className="top"></div>
 			<div className="menu left">
 				<h3>MENU</h3>
-				<Link onClick={(ev)=> onClickHandler(ev, setSearch)} to="/productos">
+				<Link className="current" onClick={(ev)=> onClickHandler(ev, setSearch)} to="/productos">
 					<FaDatabase className="icon" />
 					Productos
 				</Link>

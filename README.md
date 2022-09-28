@@ -1,9 +1,9 @@
 # App de gestión
 
-En este proyecto busco construir una aplicación web de escritorio que ofrezca herramientas de gestión para negocios y funcione por módulos. \
+Aplicación web de escritorio que ofrece herramientas de gestión comercial. \
 Práctica con firebase.
 
-# Modulos actuales
+# Secciones disponibles
 
 ## Productos
 

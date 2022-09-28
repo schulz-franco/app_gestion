@@ -35,7 +35,7 @@ const Carrito = () => {
 						<ProductoCarrito key={producto[0]} id={producto[0]} producto={producto[1]} carrito={carrito} setCarrito={setCarrito} setMontoTotal={setMontoTotal} />
 					)
 				})}
-				{carrito.length > 0 &&
+				{carrito.length > 1 &&
 					<div className="producto">
 						<span></span>
 						<span></span>
