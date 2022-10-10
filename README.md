@@ -40,7 +40,7 @@ Práctica con firebase.
 
 Actualmente no esta pensado para ser probado. Si queres hacerlo necesitas:
 
-- Dar de alta una database en Cloud Firestore con una colección llamada "productos" y otra llamada "ventas"
+- Dar de alta una database en Cloud Firestore
 - Permitir la lectura/escritura en las reglas
 - Crear un archivo .env y agregar las variables de configuración de firebase segun a como son llamadas en el archivo "src/firebase/firebaseConfig.js" 
 
